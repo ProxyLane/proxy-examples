@@ -89,7 +89,7 @@ def main():
         values=[sum(p['request_types'].get(t,{}).get('bytes',0) for p in attempts if p['arm']==arm)/manifest['repeats']/1e6 for t in types]
         ax.barh([i+(j-.5)*.32 for i in range(len(types))],values,height=.29,color=colors[j],label='Default resource loading' if arm=='full' else 'Block images, fonts, media')
     ax.set_yticks(range(len(types)),types);ax.set_xlabel('Mean browser-observed HTTP transfer per catalogue (decimal MB)');ax.set_title('Where the bytes went',loc='left',fontsize=23,pad=24,weight='bold');ax.spines[['top','right']].set_visible(False);ax.legend(frameon=False)
-    fig.text(.01,-.025,'ProxyLane research | Resource types recorded by Playwright | Observed bytes, not provider invoice',fontsize=10,color='#60646c')
+    fig.text(.10,-.025,'ProxyLane | Three repeats | Completed-request HTTP bytes | Billing not measured',fontsize=10,color='#60646c')
     for ext in ['png','svg']: fig.savefig(out/f'resource-breakdown.{ext}',dpi=160,bbox_inches='tight')
     plt.close(fig)
     (out/'SHA256SUMS').write_text(''.join(f'{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.name}\n' for p in sorted(out.iterdir()) if p.is_file()))
