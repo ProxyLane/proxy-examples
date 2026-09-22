@@ -13,3 +13,7 @@ jobs:
         run: python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Check browser example syntax
         run: node --check browser.mjs
+      - name: Test bandwidth research validation
+        run: node --test research/playwright-bandwidth/core.test.mjs
+      - name: Check research runner syntax
+        run: node --check research/playwright-bandwidth/run.mjs
