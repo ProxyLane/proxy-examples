@@ -1,0 +1,15 @@
+name: Example tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  examples:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Test Python collectors and validator
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Check browser example syntax
+        run: node --check browser.mjs

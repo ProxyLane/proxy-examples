@@ -1,8 +1,28 @@
-# ProxyLane examples
+<p align="center">
+  <a href="https://proxylane.dev"><img src="assets/proxylane.png" alt="ProxyLane — Your next request, on the right route" width="680"></a>
+</p>
 
-Practical Python, curl and Playwright examples for turning a proxy request into useful records. Includes an SEO observation validator and a provider migration worksheet.
+<h1 align="center">ProxyLane examples</h1>
 
-**[Get started with ProxyLane](https://proxylane.dev/register?utm_source=github&utm_medium=repository&utm_campaign=proxy-examples)** · [Residential proxies](https://proxylane.dev/residential-proxies) · [Pricing](https://proxylane.dev/pricing) · [Agent setup skill](https://github.com/ProxyLane/skills)
+<p align="center">Python, curl and Playwright examples for turning a proxy request into useful records</p>
+
+<p align="center">
+  <a href="https://github.com/ProxyLane/proxy-examples/actions/workflows/tests.yml"><img src="https://github.com/ProxyLane/proxy-examples/actions/workflows/tests.yml/badge.svg" alt="Example tests"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-28705b" alt="MIT license"></a>
+</p>
+
+<p align="center">
+  <a href="https://proxylane.dev/register?utm_source=github&amp;utm_medium=repository&amp;utm_campaign=proxy-examples"><strong>Get started with ProxyLane</strong></a> ·
+  <a href="https://proxylane.dev/pricing">Pricing</a> ·
+  <a href="https://github.com/ProxyLane/skills">Agent setup skill</a>
+</p>
+
+## Inspect it, run it, verify it
+
+- **Published by [ProxyLane](https://github.com/ProxyLane).** Source code and setup instructions live together in this public repository.
+- **[Automated tests](https://github.com/ProxyLane/proxy-examples/actions/workflows/tests.yml).** Authentication, rejected responses and SEO validation run against local fixtures on every push. No paid proxy traffic is needed.
+- **Credentials stay out of the repository.** Examples use environment variables and keep credentials out of command-line arguments and logs.
+- **Reproducible sample results.** The included fixture has four rows: two accepted and two rejected. These demonstrate the code, not network performance.
 
 Use your ProxyLane connection details with these examples. Keep the same scripts and acceptance rules when comparing providers. The examples also work with compatible proxy services.
 
