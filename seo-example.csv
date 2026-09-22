@@ -1,0 +1,5 @@
+engine,query,expected_location,observed_location,device,observed_at,required_depth,observed_depth,result_count,status,empty_confirmed,cost_usd
+fixture-engine,sample notebook,London,London,desktop,2026-09-16T12:00:00Z,10,10,10,ok,false,0.01
+fixture-engine,sample pencil,London,London,desktop,2026-09-16T12:01:00Z,10,0,0,challenge,false,0.01
+fixture-engine,sample ruler,London,Paris,desktop,2026-09-16T12:02:00Z,10,10,10,ok,false,0.01
+fixture-engine,no such fixture item,London,London,desktop,2026-09-16T12:03:00Z,10,0,0,ok,true,0.01

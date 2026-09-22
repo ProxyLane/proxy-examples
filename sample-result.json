@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "client": "curl",
+  "checked_at": "2026-09-16T12:06:26.998241+00:00",
+  "status": "ok",
+  "http_status": 200,
+  "attempts": 1,
+  "retries": 0,
+  "response_body_bytes": 186,
+  "elapsed_ms": 1.1,
+  "accepted_records": 2,
+  "rejected_records": 2,
+  "records": [
+    {
+      "id": "fixture-001",
+      "title": "Sample notebook"
+    },
+    {
+      "id": "fixture-002",
+      "title": "Sample pencil"
+    }
+  ],
+  "cost_usd": null,
+  "scope": "One JSON response; body bytes are not provider billable traffic; no geo or residential-origin proof",
+  "sample_context": "Local authenticated fixture proxy; synthetic records; not a ProxyLane network benchmark"
+}

@@ -1,0 +1,1 @@
+{"name":"proxylane-workload-example","private":true,"type":"module","scripts":{"collect":"node browser.mjs"},"dependencies":{"playwright":"1.62.1"}}

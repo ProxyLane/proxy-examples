@@ -1,0 +1,31 @@
+{
+  "observations": 4,
+  "accepted_observations": 2,
+  "rejected_observations": 2,
+  "known_cost_usd": 0.04,
+  "cost_complete": true,
+  "cost_per_accepted_usd": 0.02,
+  "results": [
+    {
+      "row": 1,
+      "accepted": true,
+      "reason": null
+    },
+    {
+      "row": 2,
+      "accepted": false,
+      "reason": "collector_failure"
+    },
+    {
+      "row": 3,
+      "accepted": false,
+      "reason": "location_mismatch"
+    },
+    {
+      "row": 4,
+      "accepted": true,
+      "reason": null
+    }
+  ],
+  "scope": "Validates your supplied fields, not engine accuracy, geography or invoices independently"
+}
