@@ -128,6 +128,10 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 Tests use a local authenticated proxy and synthetic records; no paid proxy traffic is required.
 
+## Original research
+
+[Playwright bandwidth experiment](research/playwright-bandwidth/README.md): paired resource-loading measurements on the Books to Scrape catalogue, with runnable code, record validation, raw observations and chart generation. The research package documents its own live-run provenance separately from the synthetic examples above.
+
 ## License
 
 MIT. Built by [ProxyLane](https://proxylane.dev).

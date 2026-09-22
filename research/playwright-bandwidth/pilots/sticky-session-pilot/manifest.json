@@ -1,0 +1,47 @@
+{
+  "protocol": "1.0",
+  "started_at": "2026-09-22T12:43:07.053Z",
+  "status": "complete",
+  "node_version": "v22.23.1",
+  "playwright_version": "1.62.1",
+  "browser_channel": "chrome",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "target": "https://books.toscrape.com",
+  "pages": 2,
+  "repeats": 1,
+  "expected_records_per_page": 20,
+  "concurrency": 1,
+  "gap_ms": 300,
+  "timeout_ms": 60000,
+  "retries": 0,
+  "fresh_context_per_navigation": true,
+  "service_workers": "block",
+  "routing_disables_cache_in_both_arms": true,
+  "lean_blocked_types": [
+    "image",
+    "font",
+    "media"
+  ],
+  "known_browser_policy_block": {
+    "url": "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js",
+    "failure": "mixed-content",
+    "handling": "excluded from unexpected failures; browser security unchanged in both arms; no transfer bytes recorded"
+  },
+  "order": "full/lean on even pair index; lean/full on odd pair index; index continues across repetitions",
+  "proxy_used": true,
+  "proxy_identity": "omitted",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "locale": "en-GB",
+  "timezone": "UTC",
+  "billed_bytes": null,
+  "source_sha256": {
+    "run.mjs": "297409a6855487345cdf793860d15e249493e3ee67727697dd747663b3164e7b",
+    "core.mjs": "c6979a6be00ba86cd7b334faf56925634409d9476f47d7222f988c9b3eb95c19"
+  },
+  "browser_version": "153.0.8010.53",
+  "finished_at": "2026-09-22T12:43:32.089Z"
+}

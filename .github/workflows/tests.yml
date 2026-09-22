@@ -13,3 +13,18 @@ jobs:
         run: python3 -m unittest discover -s tests -p 'test_*.py'
       - name: Check browser example syntax
         run: node --check browser.mjs
+      - name: Test bandwidth research validation
+        run: node --test research/playwright-bandwidth/core.test.mjs
+      - name: Check research runner syntax
+        run: node --check research/playwright-bandwidth/run.mjs
+      - name: Verify research analysis with synthetic fixtures
+        run: |
+          python3 -m venv /tmp/research-plots
+          /tmp/research-plots/bin/pip install -r research/playwright-bandwidth/requirements-plots.txt
+          /tmp/research-plots/bin/python research/playwright-bandwidth/test_analysis.py
+      - name: Reconcile published research observations
+        run: |
+          /tmp/research-plots/bin/python research/playwright-bandwidth/analyze.py \
+            research/playwright-bandwidth/results/2026-09-22-v2 /tmp/rebuilt-research
+          cmp /tmp/rebuilt-research/analysis.json research/playwright-bandwidth/published/2026-09-22/analysis.json
+          cmp /tmp/rebuilt-research/repeat-totals.csv research/playwright-bandwidth/published/2026-09-22/repeat-totals.csv

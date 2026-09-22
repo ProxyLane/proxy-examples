@@ -1,0 +1,20 @@
+{
+  "arms": {
+    "full": {
+      "navigations": 1,
+      "valid_navigations": 0,
+      "records": 0,
+      "observed_bytes": 0,
+      "completed_requests": 0,
+      "failed_requests": 1,
+      "browser_policy_blocked_requests": 0,
+      "intentionally_blocked_requests": 0,
+      "missing_sizes": 0,
+      "duration_ms": 1872,
+      "observed_bytes_per_1000_valid_records": null
+    }
+  },
+  "billed_bytes": null,
+  "billed_cost": null,
+  "byte_measurement": "Playwright request.sizes: request/response headers + bodies, completed requests only; failed transfers and transport overhead excluded"
+}
