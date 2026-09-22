@@ -11,6 +11,8 @@ def main():
     manifest = json.loads((source/'manifest.json').read_text())
     pages = [json.loads(line) for line in (source/'pages.jsonl').read_text().splitlines()]
     attempt_path=source/'attempts.jsonl'
+    if int(manifest['protocol'].split('.')[0]) >= 2:
+        assert attempt_path.exists(), 'Protocol v2 requires every attempt'
     attempts=[json.loads(line) for line in attempt_path.read_text().splitlines()] if attempt_path.exists() else pages
     assert manifest['status'] == 'complete', 'Incomplete run'
     assert len(pages) == manifest['pages'] * manifest['repeats'] * 2

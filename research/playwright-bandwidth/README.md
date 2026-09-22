@@ -66,3 +66,11 @@ python3 -m venv .venv-plots
 Exploratory v1 runs stopped on transport failures and remain outside final data. Before the next dedicated run, v2 fixes a maximum of one transport retry per page/arm; no unbounded retry or success-only filtering. The optional nonsecret environment variables `PROXY_MODE` (`sticky` or `rotating`), `PROXY_GATEWAY_REGION` (two uppercase letters), and `PROXY_TTL_SECONDS` (integer up to five digits) describe operator-supplied configuration in the manifest. They do not independently verify exit location or actual session continuity.
 
 All observed completed-request bytes from failed attempts remain in the numerator. Unfinished requests may already have transferred bytes, but their partial transfer is not measurable by this method and remains excluded. Therefore even retry-inclusive observed totals are not provider-billed traffic and can undercount real traffic. Report retry counts and failed-attempt counts next to outcomes; retain unsuccessful exploratory data separately rather than merging protocols.
+
+Offline analysis regression tests use explicitly synthetic observations and never alter the published measurements:
+
+```sh
+.venv-plots/bin/python research/playwright-bandwidth/test_analysis.py
+```
+
+[Execution history](EXECUTION-HISTORY.md) preserves interrupted runs and protocol changes. The archived `protocol-v1` source matches the source hashes in the interrupted v1 manifests; current `run.mjs` implements protocol v2.

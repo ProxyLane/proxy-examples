@@ -17,3 +17,8 @@ jobs:
         run: node --test research/playwright-bandwidth/core.test.mjs
       - name: Check research runner syntax
         run: node --check research/playwright-bandwidth/run.mjs
+      - name: Verify research analysis with synthetic fixtures
+        run: |
+          python3 -m venv /tmp/research-plots
+          /tmp/research-plots/bin/pip install -r research/playwright-bandwidth/requirements-plots.txt
+          /tmp/research-plots/bin/python research/playwright-bandwidth/test_analysis.py
