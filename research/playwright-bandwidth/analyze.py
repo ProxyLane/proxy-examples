@@ -63,7 +63,7 @@ def main():
     savecsv('repeat-totals.csv',totals)
     savecsv('page-observations.csv',[{k:p[k] for k in ['repeat','page','arm','started_at','observed_bytes','completed_requests','failed_requests','intentionally_blocked_requests','browser_policy_blocked_requests','missing_sizes','duration_ms','document_status']} for p in pages])
     savecsv('attempt-observations.csv',[dict(repeat=p['repeat'],page=p['page'],arm=p['arm'],attempt=p.get('attempt',p.get('attempt_idx',1)),accepted=not p['validation_errors'],observed_bytes=p['observed_bytes'],failed_requests=p['failed_requests'],browser_policy_blocked_requests=p['browser_policy_blocked_requests'],validation_errors=';'.join(p['validation_errors'])) for p in attempts])
-    savecsv('records.csv',[dict(repeat=p['repeat'],arm=p['arm'],catalogue_page=p['page'],collected_at=p['started_at'],**r) for p in pages for r in p['rows']])
+    savecsv('records.csv',[dict(repeat=p['repeat'],arm=p['arm'],catalogue_page=p['page'],navigation_started_at=p['started_at'],**r) for p in pages for r in p['rows']])
     savings=[100*(1-totals[i+1]['observed_bytes']/totals[i]['observed_bytes']) for i in range(0,len(totals),2)]
     summary={'source_manifest':manifest,'totals':totals,'reduction_percent_each_repeat':savings,'median_reduction_percent':statistics.median(savings),'records_equal_within_every_pair':True,'actual_billed_bytes':None,'actual_billed_cost_usd':None,'attempt_count':len(attempts),'failed_attempt_count':sum(bool(p['validation_errors']) for p in attempts),'cost_basis':'Modelled from captured completed-request browser HTTP bytes across all attempts; partial failed transfers unmeasured, decimal GB, excludes transport overhead and compute; published rates are not invoices. $6.50/GB requires a $6.50 1GB purchase; $2.50/GB requires a $2500 1TB purchase.'}
     (out/'analysis.json').write_text(json.dumps(summary,indent=2)+'\n')
@@ -73,13 +73,13 @@ def main():
     plt.rcParams.update({'font.family':'DejaVu Sans','font.size':12,'text.color':'#1b1b1b','axes.labelcolor':'#60646c','axes.edgecolor':'#e0e1e6','svg.fonttype':'none'})
     colors=['#60646c','#198d82']
     fig,ax=plt.subplots(figsize=(12,6.75),layout='constrained'); fig.set_facecolor('#ffffff')
-    ax.set_title('Same catalogue records, different transfer',loc='left',fontsize=23,pad=32,weight='bold')
+    ax.set_title('Same catalogue records, different transfer',loc='left',fontsize=23,pad=58,weight='bold')
     for j,arm in enumerate(['full','lean']):
         rows=[t for t in totals if t['arm']==arm]
         bars=ax.bar([t['repeat']+(j-.5)*.32 for t in rows],[t['decimal_mb'] for t in rows],width=.29,color=colors[j],label='Default resource loading' if arm=='full' else 'Block images, fonts, media')
         ax.bar_label(bars,fmt='%.2f',padding=5,fontsize=11)
     ax.set_xticks(range(1,manifest['repeats']+1),[f'Repeat {i}' for i in range(1,manifest['repeats']+1)])
-    ax.set_ylabel('Browser-observed HTTP transfer (decimal MB)');ax.spines[['top','right']].set_visible(False);ax.set_ylim(bottom=0);ax.margins(y=.2);ax.legend(frameon=False,loc='upper right')
+    ax.set_ylabel('Browser-observed HTTP transfer (decimal MB)');ax.spines[['top','right']].set_visible(False);ax.set_ylim(bottom=0);ax.margins(y=.2);ax.legend(frameon=False,loc='lower left',bbox_to_anchor=(0,1.01),ncol=2,fontsize=11)
     fig.text(.01,-.025,f"ProxyLane | {manifest['pages']*20:,} catalogue records per arm per repeat | {manifest['started_at'][:10]} | Cache disabled | Billing not measured",fontsize=10,color='#60646c')
     for ext in ['png','svg']: fig.savefig(out/f'transfer-by-repeat.{ext}',dpi=160,bbox_inches='tight')
     plt.close(fig)

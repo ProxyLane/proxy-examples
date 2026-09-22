@@ -1,0 +1,15 @@
+# Execution history
+
+22 September 2026, UTC. All acquisition datasets are retained; headline comparison uses only the complete acquisition run identified in the article.
+
+1. `pilots/validation-pilot`: rejected by the first validator. The site includes an HTTP jQuery script on an HTTPS page; Chrome blocks it as mixed content. An unused declared font also remains unloaded. The validator was corrected to classify this exact browser policy block separately and allow unused font faces. Chrome security settings were not changed. The exact pre-correction validator source for this earliest pilot was not archived; its observations and source hashes remain available.
+2. `pilots/corrected-pilot`: one complete paired catalogue page, 20 matching records. Excluded from the complete-run comparison.
+3. `results/2026-09-22-interrupted`: first full acquisition attempt stopped on a proxy HTTP 407 at repeat 1, page 13, lean arm. Previous completed observations remain here. A zero byte value on the failed request means no completed-request bytes captured, not zero network consumption. Its 10 MB test allocation was active and showed remaining capacity at inspection; exhaustion was not established.
+4. An isolated 150 MB research allocation was reserved from existing traffic capacity, without purchasing a new package. `pilots/isolated-auth-pilot` received HTTP 407 at its first navigation. A later direct diagnostic through the configured proxy succeeded; the cause of the transient authentication responses was not established.
+5. `pilots/isolated-ready-pilot` completed one paired page with matching records. Diagnostic/pilot traffic is excluded from the article's modeled complete-catalogue consumption comparison.
+6. `results/2026-09-22-isolated-interrupted` is the second full attempt: it stopped on a transport failure on repeat 1, page 9, full arm. The v1 runner did not retain a more specific network error code. Exact v1 source was recovered in `protocol-v1/` and verified against this run’s source hashes.
+7. `pilots/sticky-session-pilot` passed on two paired pages. Protocol v2 fixes a US gateway and a configured 3,600-second sticky session, allows at most one transport-only retry per navigation, and retains all attempts. `results/2026-09-22-v2` is the new full run; its manifest is authoritative for completion. No observations from earlier attempts are spliced into it. The configured session is not an independently verified guarantee of a constant residential exit.
+
+This is a resource-loading experiment on a fictional static catalogue. Successful repetitions do not estimate proxy availability, anti-bot effectiveness, or general e-commerce reliability.
+
+Final v2 outcome: completed 12:46:41–13:17:48 UTC, 301 attempts, 300 accepted navigations, 150 equal pairs. Repeat 3/page 37/lean had `net::ERR_NETWORK_CHANGED`; the permitted retry succeeded. That rejected attempt captured zero completed-request bytes, which does not establish zero actual transfer. All three repeats preserve 1,000 unique products in each arm.

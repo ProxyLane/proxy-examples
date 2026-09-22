@@ -1,0 +1,43 @@
+{
+  "protocol": "1.0",
+  "started_at": "2026-09-22T12:28:04.603Z",
+  "status": "failed",
+  "node_version": "v22.23.1",
+  "playwright_version": "1.62.1",
+  "browser_channel": "chrome",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "target": "https://books.toscrape.com",
+  "pages": 1,
+  "repeats": 1,
+  "expected_records_per_page": 20,
+  "concurrency": 1,
+  "gap_ms": 300,
+  "timeout_ms": 60000,
+  "retries": 0,
+  "fresh_context_per_navigation": true,
+  "service_workers": "block",
+  "routing_disables_cache_in_both_arms": true,
+  "lean_blocked_types": [
+    "image",
+    "font",
+    "media"
+  ],
+  "order": "full/lean on even pair index; lean/full on odd pair index; index continues across repetitions",
+  "proxy_used": true,
+  "proxy_identity": "omitted",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "locale": "en-GB",
+  "timezone": "UTC",
+  "billed_bytes": null,
+  "source_sha256": {
+    "run.mjs": "317b7466c440b3878844edac6318bba959bafd46c53beb8e0050b586ab3ab991",
+    "core.mjs": "bf337ad8ced07fb2a6bb0306c7f3742ce53b1692257ea0ea0941ca397ca266ad"
+  },
+  "browser_version": "153.0.8010.53",
+  "error_class": "Error",
+  "finished_at": "2026-09-22T12:28:10.595Z"
+}

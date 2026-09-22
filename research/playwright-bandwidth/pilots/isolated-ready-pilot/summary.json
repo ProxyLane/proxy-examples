@@ -1,0 +1,33 @@
+{
+  "arms": {
+    "full": {
+      "navigations": 1,
+      "valid_navigations": 1,
+      "records": 20,
+      "observed_bytes": 351313,
+      "completed_requests": 30,
+      "failed_requests": 0,
+      "browser_policy_blocked_requests": 1,
+      "intentionally_blocked_requests": 0,
+      "missing_sizes": 0,
+      "duration_ms": 3851,
+      "observed_bytes_per_1000_valid_records": 17565650
+    },
+    "lean": {
+      "navigations": 1,
+      "valid_navigations": 1,
+      "records": 20,
+      "observed_bytes": 115886,
+      "completed_requests": 9,
+      "failed_requests": 0,
+      "browser_policy_blocked_requests": 1,
+      "intentionally_blocked_requests": 29,
+      "missing_sizes": 0,
+      "duration_ms": 4002,
+      "observed_bytes_per_1000_valid_records": 5794300
+    }
+  },
+  "billed_bytes": null,
+  "billed_cost": null,
+  "byte_measurement": "Playwright request.sizes: request/response headers + bodies, completed requests only; failed transfers and transport overhead excluded"
+}

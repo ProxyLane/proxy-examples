@@ -2,6 +2,16 @@
 
 This protocol measures browser-observed transfer on **Books to Scrape**, a public practice catalog. It is not a production anti-bot benchmark, a provider comparison, or a measurement of provider billing. Publisher: ProxyLane.
 
+## Published observation: 22 September 2026
+
+Three paired repeats preserved the same 1,000 unique catalogue records per arm. Default resource loading used about 18.38 decimal MB; blocking images/fonts/media used 5.80 MB. Median reduction in captured completed-request HTTP bytes: **68.4503%**. There were 301 attempts, 300 accepted navigations and one transport retry. Provider-billed traffic was not measured.
+
+- [Read the study](https://proxylane.dev/blog/playwright-product-bandwidth-benchmark)
+- [Exact results and charts](published/2026-09-22/)
+- [Raw final observations](results/2026-09-22-v2/)
+- [Execution history, including interrupted attempts](EXECUTION-HISTORY.md)
+- [Independent internal methodology review](published/2026-09-22/methodology-review.md)
+
 ## Question and design
 
 How much observed browser transfer changes when image, font and media requests are blocked, while the same 1,000 listing records remain intact?
